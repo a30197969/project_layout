@@ -3,10 +3,14 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"project_layout/internal/conf"
 	"project_layout/internal/pkg"
 )
 
 func initApp(hs pkg.Server) (*pkg.App, error) {
+	confPath := "configs/main.yaml"
+	conf := conf.GetConf(confPath)
+	fmt.Printf("%+v\n", conf)
 	//c := GetRedisConf()
 	//r := NewRedis(c)
 	//greeterRepo := data.NewGreeterRepo(dataData, logger)

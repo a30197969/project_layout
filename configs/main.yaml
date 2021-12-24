@@ -1,15 +1,13 @@
-server:
-  http:
-    addr: 0.0.0.0:8000
-    timeout: 1s
-  grpc:
-    addr: 0.0.0.0:9000
-    timeout: 1s
-data:
-  database:
-    driver: mysql
-    source: fengniao:fengniao123@tcp(172.16.151.61:3306)/forum
-  redis:
-    addr: 172.16.151.80:6379
-    read_timeout: 0.2s
-    write_timeout: 0.2s
+http:
+  addr: 0.0.0.0:8000
+  timeout: 1s
+grpc:
+  addr: 0.0.0.0:9000
+  timeout: 1s
+database:
+  driver: mysql
+  source: fengniao:fengniao123@tcp(172.16.151.61:3306)/forum
+redis:
+  addr: 172.16.151.80:6379
+  read_timeout: 0.2s
+  write_timeout: 0.2s

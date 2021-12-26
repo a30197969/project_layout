@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package project_layout.bbs.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "project_layout/api/bbs/v1;v1";
+
+service BBSService {
+    rpc GetThread(GetThreadReq) returns (GetThreadResp) {
+        option (google.api.http) = {
+            get: "/thread/{id}"
+            body: "*"
+        };
+    }
+}
+
+message GetThreadReq {
+    int32 id = 1;
+}
+
+message GetThreadResp {
+    int32 code = 1;
+    string message = 2;
+    string details = 3;
+}

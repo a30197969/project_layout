@@ -1,9 +1,10 @@
-package pkg
+package server
 
 import (
 	"context"
 	"log"
 	"net/http"
+	"project_layout/internal/conf"
 )
 
 type Server interface {
@@ -17,10 +18,10 @@ type MyServer struct {
 	hs      *http.Server
 }
 
-func NewMyServer(addr string, handler http.Handler) Server {
+func NewMyServer(cfg *conf.Config) Server {
 	return &MyServer{
-		addr:    addr,
-		handler: handler,
+		addr:    cfg.Http.Addr,
+		handler: http.DefaultServeMux,
 	}
 }
 
